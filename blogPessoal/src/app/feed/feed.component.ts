@@ -9,8 +9,8 @@ import { Postagem } from '../model/Postagem';
 })
 export class FeedComponent implements OnInit {
 
-  listaPostagens: Postagem []
-
+  listaPostagens: Postagem[]
+  postagem: Postagem = new Postagem
 
   constructor(private postagemservice: PostagemService) { }
 
@@ -18,11 +18,18 @@ export class FeedComponent implements OnInit {
     this.findallPostagens()
   }
 
-  findallPostagens(){
+  findallPostagens() {
 
-    this,this.postagemservice.getAllPostagem().subscribe((resp: Postagem[])=>{
+    this.postagemservice.getAllPostagem().subscribe((resp: Postagem[]) => {
       this.listaPostagens = resp
     })
   }
 
-}
+  publicar(){
+    this.postagemservice.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
+      this.postagem = resp
+      location.assign('/feed')
+
+    })
+  }    
+}  
