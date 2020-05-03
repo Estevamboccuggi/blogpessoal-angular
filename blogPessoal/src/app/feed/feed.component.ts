@@ -2,12 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { PostagemService } from '../service/postagem.service';
 import { Postagem } from '../model/Postagem';
 
+
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.css']
 })
 export class FeedComponent implements OnInit {
+
+  key = 'data'
+  reverse = true
 
   listaPostagens: Postagem[]
   postagem: Postagem = new Postagem
