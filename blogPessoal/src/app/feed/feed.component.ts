@@ -16,21 +16,22 @@ export class FeedComponent implements OnInit {
   listaPostagens: Postagem[]
   postagem: Postagem = new Postagem
 
-  constructor(private postagemservice: PostagemService) { }
+  constructor(private postagemService: PostagemService) { }
 
   ngOnInit() {
     this.findallPostagens()
+    window.scroll(0, 0)
   }
 
   findallPostagens() {
 
-    this.postagemservice.getAllPostagem().subscribe((resp: Postagem[]) => {
+    this.postagemService.getAllPostagem().subscribe((resp: Postagem[]) => {
       this.listaPostagens = resp
     })
   }
 
   publicar(){
-    this.postagemservice.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
+    this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
       this.postagem = resp
       location.assign('/feed')
 

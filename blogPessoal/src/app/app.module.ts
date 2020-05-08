@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'
 import { OrderModule} from 'ngx-order-pipe';
 import { from } from 'rxjs';
+import { EditarComponent } from './editar/editar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { from } from 'rxjs';
     HomeComponent,
     FeedComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    EditarComponent
 
   ],
   imports: [

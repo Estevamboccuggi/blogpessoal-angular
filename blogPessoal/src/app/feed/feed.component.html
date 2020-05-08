@@ -50,8 +50,7 @@
 
       <div>
         <label for="texto">Texto:</label>
-        <textarea name="texto" id="texto" cols="30" rows="4" class="form-control" placeholder="digite seu texto"
-          [(ngModel)]="postagem.texto"></textarea>
+        <textarea name="texto" id="texto" cols="30" rows="4" class="form-control" placeholder="digite seu texto" [(ngModel)]="postagem.texto"></textarea>
       </div>
 
 
@@ -66,7 +65,20 @@
       <div class="card mb-4" *ngFor="let postagem of listaPostagens | orderBy : key : reverse">
 
         <div class="card-header">
+
+          <div class="row">
+            .col-md-8
+
+          </div>
+
           <h5 class="card-title">{{ postagem.titulo }}</h5>
+
+          <button class="btn btn-outline-info" [routerLink] = "['/Editar', postagem.id]" >
+            Editar
+          </button>
+
+
+
         </div>
 
         <div class="card-body">
